@@ -1,4 +1,5 @@
 from django import VERSION as django_version
+from packaging import version
 from rest_framework import VERSION as drf_version
 from rest_framework.routers import DefaultRouter
 
@@ -10,7 +11,7 @@ from tests.views import (
 
 router = DefaultRouter()
 
-if drf_version < '3.9':
+if version.parse(drf_version) < version.parse('3.9'):
     router.register('no-condition', NoConditionViewSet, base_name='no-condition')
     router.register('last-modified', LastModifiedViewSet, base_name='last-modified')
     router.register('etag', EtagViewSet, base_name='etag')
