@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setup(name='django-rest-framework-condition',
       version='0.1.1',
-      packages=find_packages(),
+      packages=find_packages(exclude=('tests',)),
       author='jozo',
       author_email='hi@jozo.io',
       description='Decorators @condition, @last_modified and @etag for Django Rest Framework',
